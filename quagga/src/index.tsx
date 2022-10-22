@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import FrontPage from './FrontPage';
 import reportWebVitals from './reportWebVitals';
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import Lobby from "./Lobby";
@@ -9,7 +9,7 @@ import Lobby from "./Lobby";
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <App />,
+        element: <FrontPage />,
     },
     {
         path: ":lobbyId",

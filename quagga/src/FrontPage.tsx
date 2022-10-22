@@ -1,11 +1,11 @@
 import React from 'react';
 
-function App() {
+function FrontPage() {
   return (
-    <div className="App">
+    <div>
       this will be the front page i guess
     </div>
   );
 }
 
-export default App;
+export default FrontPage;
