@@ -3,6 +3,7 @@ import {useLoaderData} from "react-router-dom";
 import {database} from "./firebase";
 import {child, get, onValue, ref} from "firebase/database";
 import Registration from "./Registration";
+import Lobby from "./Lobby";
 
 function Game() {
     const lobbyId: any = useLoaderData();
@@ -38,7 +39,7 @@ function Game() {
         case 'lobby':
             return (
                 <>
-                    {registrationCompleted ? <div>completed</div> :
+                    {registrationCompleted ? <Lobby/> :
                         <Registration setRegistrationComplete={setRegistrationCompleted}/>
                     }
                 </>
