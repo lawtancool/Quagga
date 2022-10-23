@@ -10,43 +10,38 @@ import {ref, push, get, onValue, child, DataSnapshot} from "firebase/database";
 
 function Lobby() {
     const lobbyId: any = useParams().lobbyId;
-    const [names, setNames] = useState([""]);
+    const [names, setNames] = useState("");
     const lobbyRef = ref(database, 'games/' + lobbyId);
     const namesRef = child(lobbyRef, 'name');
+    let namesList: string[] = [];
 
     useEffect(() => {
-
-        //
-        // get(namesRef).then((snapshot) => {
-        //     handleNamesChange(snapshot)
-        // })
         onValue(namesRef, (snapshot) => {
             handleNamesChange(snapshot);
+            namesList = names.split(String.fromCharCode(257));
+            console.log(namesList)
         })
 
         function handleNamesChange(snapshot: DataSnapshot) {
-            const temp: string[] = [];
+            let temp: string = "";
             snapshot.forEach((snapshot) => {
-                console.log(snapshot.val())
-                temp.push(snapshot.val());
+                console.log(snapshot.val());
+                temp += snapshot.val() + String.fromCharCode(257);
             })
             setNames(temp);
         }
-
+        console.log(names)
     })
 
-
-
-    console.log(names);
     return (
         <div>
             <p>Names:</p><br/>
             <ul>
-                <li>hi</li>
-                {
-                    names.map((name, index) => (
-                        <li key={index}>{name}</li>
-                    ))
+                {namesList.map((name, index) => {
+                        return (
+                            <li key={index}>{name}</li>
+                        );
+                    })
                 }
             </ul>
         </div>
