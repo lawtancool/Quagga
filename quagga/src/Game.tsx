@@ -5,6 +5,7 @@ import {child, get, onValue, ref} from "firebase/database";
 import Registration from "./Registration";
 import QuestionEntry from "./QuestionEntry";
 import Lobby from "./Lobby";
+import AnswerEntry from "./AnswerEntry";
 
 function Game() {
     const lobbyId: any = useLoaderData();
@@ -50,6 +51,8 @@ function Game() {
             );
         case 'questionEntry':
             return <QuestionEntry/>
+        case 'answerEntry':
+            return <AnswerEntry/>
         case 'fun':
             return <div>nut</div>
         default:
