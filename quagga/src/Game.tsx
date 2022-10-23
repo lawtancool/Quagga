@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useLoaderData} from "react-router-dom";
 import {database} from "./firebase";
-import {ref, get, child, onValue} from "firebase/database";
+import {child, get, onValue, ref} from "firebase/database";
 import Registration from "./Registration";
 
 function Game() {
@@ -34,12 +34,14 @@ function Game() {
     }
 
 
-    switch(gameState) {
+    switch (gameState) {
         case 'lobby':
             return (
                 <>
-                    {registrationCompleted ? <div>completed</div> :<Registration setRegistrationComplete={setRegistrationCompleted}/>
-                        }</>
+                    {registrationCompleted ? <div>completed</div> :
+                        <Registration setRegistrationComplete={setRegistrationCompleted}/>
+                    }
+                </>
             );
         case 'fun':
             return <div>nut</div>
