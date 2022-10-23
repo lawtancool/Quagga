@@ -21,7 +21,7 @@ function QuestionEntry() {
                 <div>
                     <h1>Write a question!</h1>
                     <input type="text" id="name"/><br/>
-                    <button onClick={(register)}>Join Game</button><br/>
+                    <button onClick={(register)}>Submit question</button><br/>
                 </div>
         }
         </>
