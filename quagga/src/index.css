@@ -19,7 +19,7 @@ code {
   --trim: #666ABD;
   --blue-hover: #85A8E1;
   --grey: #D9D9D9;
-  --title-font-size: 84px;
+  --title-font-size: 64px;
   --body-font-size: 32px;
   --border-radius: 15px;
 }
@@ -41,7 +41,7 @@ body {
 
 .logo {
   width: 300px;
-  margin: 100px 10px 10px 10px;
+  margin: 100px 10px 0px 10px;
 }
 
 h1 {
@@ -57,6 +57,12 @@ h2 {
   font-size: var(--title-font-size);
 }
 
+p {
+  font-family: Baloo;
+  color: var(--trim);
+  font-size: var(--body-font-size);
+}
+
 .link {
   font-family: Baloo;
 }
@@ -68,7 +74,6 @@ h2 {
   color: var(--trim);
   font-size: var(--body-font-size);
   border-radius: var(--border-radius);
-  /* border: none; */
   border-color: var(--baby-blue);
   border-width: 3px;
   border-style: solid;
@@ -76,7 +81,7 @@ h2 {
   text-align: center;
 }
 
-.link-button {
+.short-button {
   width: 203px;
   height: 66px;
   font-family: Baloo-Bold;
@@ -104,6 +109,8 @@ button:hover {
   cursor: pointer;
 }
 
+/* lobby */
+
 .lobby {
   margin: auto;
   width: 50%;
@@ -112,14 +119,33 @@ button:hover {
 }
 
 .lobby h2 {
-  margin-bottom: -8%;
+  margin-bottom: -5%;
 }
 
 .player-list {
   list-style: none;
   background-color: white;
   width: 760px;
+  height: 450px;
   font-family: Baloo;
   font-size: var(--body-font-size);
   color: var(--trim);
+  border-color: var(--baby-blue);
+  border-width: 3px;
+  border-style: solid;
+  border-radius: var(--border-radius);
+  text-align: left;
+  overflow-y:auto;
+  margin-bottom: 5px;
+}
+
+/* question entry */
+
+.question-entry h2{
+  color: var(--trim);
+  padding: 10px;
+}
+.loading {
+  margin: auto;
+  padding: 10ps;
 }

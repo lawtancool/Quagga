@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {useParams} from "react-router-dom";
 import {database} from "./firebase";
 import {ref, push} from "firebase/database";
-
+import logo from './images/logo.png';
 
 function QuestionEntry() {
     const lobbyId: any = useParams().lobbyId;
@@ -16,12 +16,14 @@ function QuestionEntry() {
 
     return (
         <>
-        {submittedQuestion ? <h1>Thanks for submitting your question! waiting for other players...</h1>
+        {submittedQuestion ? <div className="loading"><p className="loading-p">Thanks for submitting your question! waiting for other players...</p>
+        <img src={logo} className="logo"></img>
+        </div>
                 :
-                <div>
-                    <h1>Write a question!</h1>
-                    <input type="text" id="name"/><br/>
-                    <button onClick={(register)}>Submit question</button><br/>
+                <div className="question-entry">
+                    <h2>Write a question!</h2>
+                    <input className="input-box" type="text" id="name" placeholder="What do you want to know about the other players?"/><br/>
+                    <button className="long-button" onClick={(register)}>Submit question</button><br/>
                 </div>
         }
         </>

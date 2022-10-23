@@ -11,7 +11,7 @@ function CopyButton(props:ButtonProps) {
   }
 
    return (
-      <button className='link-button' onClick={copyTooltip}> {link.link} </button>
+      <button className='short-button' onClick={copyTooltip}> {link.link} </button>
    )
 }
 
