@@ -13,87 +13,113 @@ code {
 } */
 
 :root {
-    --light-blue: #f0fbff;
-    --med-pink: #ffe5eb;
-    --baby-blue: #96B8F1;
-    --trim: #666ABD;
-    --blue-hover: #85A8E1;
-    --grey: #D9D9D9;
-    --title-font-size: 84px;
-    --body-font-size: 32px;
-    --border-radius: 15px;
- }
- 
- @font-face {
-    font-family: Baloo;
-    src: url(Baloo_Paaji/BalooPaaji2-Regular.ttf);
-  }
+  --light-blue: #f0fbff;
+  --med-pink: #ffe5eb;
+  --baby-blue: #96B8F1;
+  --trim: #666ABD;
+  --blue-hover: #85A8E1;
+  --grey: #D9D9D9;
+  --title-font-size: 84px;
+  --body-font-size: 32px;
+  --border-radius: 15px;
+}
 
-  @font-face {
-    font-family: Baloo-Bold;
-    src: url(Baloo_Paaji/BalooPaaji2-ExtraBold.ttf);
-  }
+@font-face {
+  font-family: Baloo;
+  src: url(Baloo_Paaji/BalooPaaji2-Regular.ttf);
+}
 
-  body {
-    background-color: var(--light-blue);
-    text-align: center;
-  }
+@font-face {
+  font-family: Baloo-Bold;
+  src: url(Baloo_Paaji/BalooPaaji2-ExtraBold.ttf);
+}
 
-  .logo {
-    width: 300px;
-    margin: 100px 10px 10px 10px;
-  }
+body {
+  background-color: var(--light-blue);
+  text-align: center;
+}
 
-  .h1 {
-    font-family: Baloo-Bold;
-    font-size: var(--title-font-size);
-    color: var(--baby-blue);
-    -webkit-text-stroke: 3px var(--trim);
-  }
+.logo {
+  width: 300px;
+  margin: 100px 10px 10px 10px;
+}
 
-  .link {
-    font-family: Baloo;
-  }
+h1 {
+  font-family: Baloo-Bold;
+  font-size: var(--title-font-size);
+  color: var(--baby-blue);
+  -webkit-text-stroke: 3px var(--trim);
+}
 
-  .input-box {
-    width: 760px;
-    height: 66px;
-    font-family: Baloo;
-    color: var(--trim);
-    font-size: var(--body-font-size);
-    border-radius: var(--border-radius);
-    /* border: none; */
-    border-color: var(--baby-blue);
-    border-width: 3px;
-    border-style: solid;
-    margin-right: 10px;
-    text-align: center;
-  }
+h2 {
+  font-family: Baloo-Bold;
+  color: var(--baby-blue);
+  font-size: var(--title-font-size);
+}
 
-  .link-button {
-    width: 203px;
-    height: 66px;
-    font-family: Baloo-Bold;
-    font-size: var(--body-font-size);
-    background-color: var(--baby-blue);
-    border-radius: var(--border-radius);
-    border: none;
-    color: white;
-  }
+.link {
+  font-family: Baloo;
+}
 
- .long-button {
-    width: 414px;
-    height: 58px;
-    margin-top: 30px;
-    font-family: Baloo-Bold;
-    font-size: var(--body-font-size);
-    background-color: var(--baby-blue);
-    border-radius: var(--border-radius);
-    border: none;
-    color: white;
- }
+.input-box {
+  width: 760px;
+  height: 66px;
+  font-family: Baloo;
+  color: var(--trim);
+  font-size: var(--body-font-size);
+  border-radius: var(--border-radius);
+  /* border: none; */
+  border-color: var(--baby-blue);
+  border-width: 3px;
+  border-style: solid;
+  margin-right: 10px;
+  text-align: center;
+}
 
-  button:hover {
-    background-color: var(--blue-hover);
-    cursor: pointer;
- }
+.link-button {
+  width: 203px;
+  height: 66px;
+  font-family: Baloo-Bold;
+  font-size: var(--body-font-size);
+  background-color: var(--baby-blue);
+  border-radius: var(--border-radius);
+  border: none;
+  color: white;
+}
+
+.long-button {
+  width: 414px;
+  height: 58px;
+  margin-top: 30px;
+  font-family: Baloo-Bold;
+  font-size: var(--body-font-size);
+  background-color: var(--baby-blue);
+  border-radius: var(--border-radius);
+  border: none;
+  color: white;
+}
+
+button:hover {
+  background-color: var(--blue-hover);
+  cursor: pointer;
+}
+
+.lobby {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+  height: 440px;
+}
+
+.lobby h2 {
+  margin-bottom: -8%;
+}
+
+.player-list {
+  list-style: none;
+  background-color: white;
+  width: 760px;
+  font-family: Baloo;
+  font-size: var(--body-font-size);
+  color: var(--trim);
+}

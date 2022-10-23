@@ -1,7 +1,7 @@
-import React, {Dispatch, SetStateAction, useEffect, useRef, useState} from 'react';
-import {useParams, RoutesProps} from "react-router-dom";
-import {database} from "./firebase";
-import {ref, push, get, onValue, child, DataSnapshot} from "firebase/database";
+import React, { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react';
+import { useParams, RoutesProps } from "react-router-dom";
+import { database } from "./firebase";
+import { ref, push, get, onValue, child, DataSnapshot } from "firebase/database";
 
 // const temp: string[] = []
 
@@ -18,7 +18,7 @@ function Lobby() {
     useEffect(() => {
         onValue(namesRef, (snapshot) => {
             handleNamesChange(snapshot);
-            for (let i = 0; i < names.split(String.fromCharCode(257)).length - 1; i++){
+            for (let i = 0; i < names.split(String.fromCharCode(257)).length - 1; i++) {
                 namesList.push(names.split(String.fromCharCode(257))[i]);
             }
             console.log(namesList)
@@ -35,14 +35,17 @@ function Lobby() {
     })
 
     return (
-        <div>
-            <p>Names:</p><br/>
-            <ul>
+        <div className="lobby">
+            <h2>PLAYERS:</h2><br />
+            <ul className="player-list">
                 {names.split(String.fromCharCode(257)).map((name, index) => {
-                        return (
+                    return (
+                        <div>
                             <li key={index}>{name}</li>
-                        );
-                    })
+                            <hr className="solid"></hr>
+                        </div>
+                    );
+                })
                 }
             </ul>
         </div>
