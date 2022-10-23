@@ -3,6 +3,8 @@ import {useParams} from "react-router-dom";
 import {database} from "./firebase";
 import {ref, push, get, set} from "firebase/database";
 import logo from './images/logo.png';
+import {Simulate} from "react-dom/test-utils";
+import play = Simulate.play;
 
 function QuestionEntry() {
     const lobbyId: any = useParams().lobbyId;
@@ -11,24 +13,28 @@ function QuestionEntry() {
     async function register (event: React.MouseEvent<HTMLButtonElement>) {
         event.preventDefault();
         const name = document.getElementById("name") as HTMLInputElement | null;
-        let qs = -1;
-        let players = -1;
+        let qs = 0;
+        let players = 0;
         push(ref(database, 'games/' + lobbyId + '/questions'), name?.value).then(() => {setSubmittedQuestion(true)});
-        get(ref(database, 'games/' + lobbyId + '/questions')).then((snapshot) => {
+        await get(ref(database, 'games/' + lobbyId + '/questions')).then((snapshot) => {
             if (snapshot.exists()){
                 console.log(snapshot.val())
-                console.log(snapshot.val().size)
+                snapshot.forEach((snapshot) => {
+                    qs++;
+                })
             }
-            qs = snapshot.val().length;
+            console.log(qs);
         })
-        get(ref(database, 'games/' + lobbyId + '/name')).then((snapshot) => {
+        await get(ref(database, 'games/' + lobbyId + '/name')).then((snapshot) => {
             if (snapshot.exists()){
                 console.log(snapshot.val())
-                console.log(snapshot.val().size)
+                snapshot.forEach((snapshot) => {
+                    players++;
+                })
             }
-            players = snapshot.val().length;
+            console.log(players);
         })
-        if (players == qs && players != -1 && qs != -1){
+        if (players === qs){
             set(ref(database, 'games/' + lobbyId + '/gameState'), 'answerEntry');
         }
     }
