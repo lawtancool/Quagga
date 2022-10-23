@@ -32,13 +32,13 @@ function AnswerEntry() {
 
     return (
         <>
-        {submittedAnswer ? <h1>Thanks for submitting your answer! waiting for other players...</h1>
+        {submittedAnswer ? <p>Thanks for submitting your answer! waiting for other players...</p>
                 :
                 <div>
-                    <h1>Write your response!</h1>
-                    <p>{question}</p>
-                    <input type="text" id="name"/><br/>
-                    <button onClick={(answer)}>Submit answer</button><br/>
+                    <h2>ANSWER THE QUESTION:</h2>
+                    <p>{question}?</p>
+                    <input className="input-box" type="text" id="name"/><br/>
+                    <button className="long-button" onClick={(answer)}>Submit answer</button><br/>
                 </div>
         }
         </>
