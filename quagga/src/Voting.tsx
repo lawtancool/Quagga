@@ -111,11 +111,11 @@ function Voting(props: VotingProps) {
                     <p>A: {answer}</p>
                     {/*<input className="input-box" type="text" id="answer"/><br/>*/}
                     {/*<button className="long-button" onClick={(vote)}>Submit answer</button>*/}
-                    <div onChange={vote}>
-                        <input type="radio" value="Male" name="gender" /> Male
-                        <input type="radio" value="Female" name="gender" /> Female
-                        <input type="radio" value="Other" name="gender" /> Other
-                    </div>
+                    {/*<div onChange={vote}>*/}
+                    {/*    <input type="radio" value="Male" name="gender" /> Male*/}
+                    {/*    <input type="radio" value="Female" name="gender" /> Female*/}
+                    {/*    <input type="radio" value="Other" name="gender" /> Other*/}
+                    {/*</div>*/}
                     <br/>
                 </div>
             }
