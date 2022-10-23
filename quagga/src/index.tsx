@@ -4,7 +4,7 @@ import './index.css';
 import FrontPage from './FrontPage';
 import reportWebVitals from './reportWebVitals';
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
-import Registration from "./Registration";
+import Game from "./Game";
 
 const router = createBrowserRouter([
     {
@@ -13,7 +13,7 @@ const router = createBrowserRouter([
     },
     {
         path: ":lobbyId",
-        element: <Registration/>,
+        element: <Game/>,
         loader: ({params}) => {
             return params.lobbyId;
         },
