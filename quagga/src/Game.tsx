@@ -4,6 +4,7 @@ import {database} from "./firebase";
 import {child, get, onValue, ref} from "firebase/database";
 import Registration from "./Registration";
 import QuestionEntry from "./QuestionEntry";
+import Lobby from "./Lobby";
 
 function Game() {
     const lobbyId: any = useLoaderData();
@@ -42,7 +43,7 @@ function Game() {
         case 'lobby':
             return (
                 <>
-                    {username ? <div>welcome, {username}</div> :
+                    {username ? <Lobby/> :
                         <Registration setUsername={setUsername}/>
                     }
                 </>
