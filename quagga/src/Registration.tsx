@@ -3,10 +3,10 @@ import {useLoaderData} from "react-router-dom";
 import {database} from "./firebase";
 import {ref, get} from "firebase/database";
 
-function register(){
-
+const register = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const name = document.getElementById("name") as HTMLInputElement | null;
+    console.log(name?.value)
 }
-
 function Registration() {
     const lobbyId: any = useLoaderData();
     const [lobbyData, setLobbyData] = useState();
@@ -22,10 +22,9 @@ function Registration() {
         }
     })
     return (
-
         <div>
-            <input type="text" id="name" name="name"/><br/>
-            <button type="button">Join Game</button><br/>
+            <input type="text" id="name"/><br/>
+            <button onClick={(register)}>Join Game</button><br/>
             {lobbyData ? lobbyData : "Link doesn't exist"}
         </div>
     );
