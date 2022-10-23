@@ -2,7 +2,7 @@ import React from 'react';
 import {database} from "./firebase";
 import {push, ref} from "firebase/database";
 import { useNavigate } from "react-router-dom";
-import logo from './logo.png';
+import logo from './images/logo.png';
 import CopyButton from './CopyButton';
 
 function FrontPage() {
@@ -17,8 +17,8 @@ function FrontPage() {
     return (
         <div>
             <img src={logo} className='logo'/>
-            <div className='h1'>QUAGGA</div>
-            <div>
+            <h1>QUAGGA</h1>
+            <div className="link-input">
                 <input className='input-box' value={`quagga.lawrencetan.ca/${newLinkKey}`}></input>
                 <CopyButton link={`quagga.lawrencetan.ca/${newLinkKey}`} />
             </div>

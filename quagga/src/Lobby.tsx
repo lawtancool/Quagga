@@ -22,7 +22,7 @@ function Lobby() {
     useEffect(() => {
         onValue(namesRef, (snapshot) => {
             handleNamesChange(snapshot);
-            for (let i = 0; i < names.split(String.fromCharCode(257)).length - 1; i++){
+            for (let i = 0; i < names.split(String.fromCharCode(257)).length - 1; i++) {
                 namesList.push(names.split(String.fromCharCode(257))[i]);
             }
             console.log(namesList)
@@ -39,17 +39,17 @@ function Lobby() {
     })
 
     return (
-        <div>
-            <p>Names:</p><br/>
-            <ul>
+        <div className="lobby">
+            <h2>PLAYERS:</h2><br />
+            <ul className="player-list">
                 {names.split(String.fromCharCode(257)).map((name, index) => {
-                        return (
+                    return (
                             <li key={index}>{name}</li>
-                        );
-                    })
+                    );
+                })
                 }
             </ul>
-            <button onClick={(start)}>START</button><br/>
+            <button className="long-button" onClick={(start)}>START GAME</button><br/>
         </div>
     );
 }
