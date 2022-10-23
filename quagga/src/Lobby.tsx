@@ -13,12 +13,14 @@ function Lobby() {
     const [names, setNames] = useState("");
     const lobbyRef = ref(database, 'games/' + lobbyId);
     const namesRef = child(lobbyRef, 'name');
-    let namesList: string[] = [];
+    const namesList: string[] = ["hi", "yjds"];
 
     useEffect(() => {
         onValue(namesRef, (snapshot) => {
             handleNamesChange(snapshot);
-            namesList = names.split(String.fromCharCode(257));
+            for (let i = 0; i < names.split(String.fromCharCode(257)).length - 1; i++){
+                namesList.push(names.split(String.fromCharCode(257))[i]);
+            }
             console.log(namesList)
         })
 
@@ -30,14 +32,13 @@ function Lobby() {
             })
             setNames(temp);
         }
-        console.log(names)
     })
 
     return (
         <div>
             <p>Names:</p><br/>
             <ul>
-                {namesList.map((name, index) => {
+                {names.split(String.fromCharCode(257)).map((name, index) => {
                         return (
                             <li key={index}>{name}</li>
                         );
