@@ -2,7 +2,7 @@ import React, {Dispatch, SetStateAction} from 'react';
 import {useParams, RoutesProps} from "react-router-dom";
 import {database} from "./firebase";
 import {ref, push} from "firebase/database";
-
+import logo from './logo.png';
 
 function Registration(props: RegistrationProps) {
     const lobbyId: any = useParams().lobbyId;
@@ -15,8 +15,10 @@ function Registration(props: RegistrationProps) {
 
     return (
         <div>
-            <input type="text" id="name"/><br/>
-            <button onClick={(register)}>Join Game</button><br/>
+            <img src={logo} className='logo'/>
+            <div className='h1'>QUAGGA</div>
+            <input className='input-box' placeholder='enter your name' type="text" id="name"/><br/>
+            <button className='long-button' onClick={(register)}>JOIN ROOM</button><br/>
         </div>
     );
 }

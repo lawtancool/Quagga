@@ -54,17 +54,22 @@ code {
     font-family: Baloo;
   }
 
-  .link input {
+  .input-box {
     width: 760px;
     height: 66px;
     font-family: Baloo;
     color: var(--trim);
     font-size: var(--body-font-size);
     border-radius: var(--border-radius);
-    border: none;
+    /* border: none; */
+    border-color: var(--baby-blue);
+    border-width: 3px;
+    border-style: solid;
+    margin-right: 10px;
+    text-align: center;
   }
 
-  .link button {
+  .link-button {
     width: 203px;
     height: 66px;
     font-family: Baloo-Bold;
