@@ -17,6 +17,7 @@ code {
     --med-pink: #ffe5eb;
     --baby-blue: #96B8F1;
     --trim: #666ABD;
+    --blue-hover: #85A8E1;
     --grey: #D9D9D9;
     --title-font-size: 84px;
     --body-font-size: 32px;
@@ -90,4 +91,9 @@ code {
     border-radius: var(--border-radius);
     border: none;
     color: white;
+ }
+
+  button:hover {
+    background-color: var(--blue-hover);
+    cursor: pointer;
  }
