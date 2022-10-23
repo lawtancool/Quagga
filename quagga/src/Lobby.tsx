@@ -9,9 +9,7 @@ function Lobby() {
 
     useEffect(() => {
         async function getData() {
-            console.log(lobbyId);
             const data = await get(ref(database, 'games/' + lobbyId));
-            console.log(data.exists());
             setLobbyData(data.val());
         }
 
@@ -20,7 +18,7 @@ function Lobby() {
         }
     })
     return (
-        <div>{lobbyData}</div>
+        <div>{lobbyData ? lobbyData : "Link doesn't exist"}</div>
     );
 }
 
