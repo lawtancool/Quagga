@@ -10,7 +10,9 @@ function Registration(props: RegistrationProps) {
     async function register (event: React.MouseEvent<HTMLButtonElement>) {
         event.preventDefault();
         const name = document.getElementById("name") as HTMLInputElement | null;
-        push(ref(database, 'games/' + lobbyId + '/name'), name?.value).then(() => {props.setRegistrationComplete(true)});
+        if (name != null && name.size > 0) {
+            push(ref(database, 'games/' + lobbyId + '/name'), name?.value).then(() => {props.setUsername(name?.value)});
+        }
     }
 
     return (
@@ -24,7 +26,7 @@ function Registration(props: RegistrationProps) {
 }
 
 interface RegistrationProps extends RoutesProps {
-    setRegistrationComplete: Dispatch<SetStateAction<boolean>>;
+    setUsername: Dispatch<SetStateAction<string>>;
 }
 
 export default Registration;
