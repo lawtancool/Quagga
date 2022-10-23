@@ -3,13 +3,13 @@ import {useLoaderData} from "react-router-dom";
 import {database} from "./firebase";
 import {child, get, onValue, ref} from "firebase/database";
 import Registration from "./Registration";
-import Lobby from "./Lobby";
+import QuestionEntry from "./QuestionEntry";
 
 function Game() {
     const lobbyId: any = useLoaderData();
     const [lobbyExists, setLobbyExists] = useState(false);
     const [gameState, setGameState] = useState("");
-    const [registrationCompleted, setRegistrationCompleted] = useState(false);
+    const [username, setUsername] = useState("");
 
     const lobbyRef = ref(database, 'games/' + lobbyId);
     const gameStateRef = child(lobbyRef, 'gameState');
@@ -34,16 +34,21 @@ function Game() {
         return <div>Link doesn't exist</div>
     }
 
+    if (gameState !== 'lobby' && username === "") {
+        return <div>you're too late bruh, game has already started</div>
+    }
 
     switch (gameState) {
         case 'lobby':
             return (
                 <>
-                    {registrationCompleted ? <Lobby/> :
-                        <Registration setRegistrationComplete={setRegistrationCompleted}/>
+                    {username ? <div>welcome, {username}</div> :
+                        <Registration setUsername={setUsername}/>
                     }
                 </>
             );
+        case 'questionEntry':
+            return <QuestionEntry/>
         case 'fun':
             return <div>nut</div>
         default:
