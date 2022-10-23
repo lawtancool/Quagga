@@ -52,7 +52,7 @@ function Game() {
         case 'questionEntry':
             return <QuestionEntry/>
         case 'answerEntry':
-            return <AnswerEntry/>
+            return <AnswerEntry username={username}/>
         case 'fun':
             return <div>nut</div>
         default:

@@ -1,11 +1,9 @@
-import React, {Dispatch, SetStateAction, useEffect, useRef, useState} from 'react';
-import {useParams, RoutesProps} from "react-router-dom";
+import React, {useEffect, useState} from 'react';
+import {useParams} from "react-router-dom";
 import {database} from "./firebase";
-import {ref, push, get, onValue, child, DataSnapshot, set} from "firebase/database";
+import {child, DataSnapshot, onValue, ref, set} from "firebase/database";
 
 // const temp: string[] = []
-
-
 
 
 function Lobby() {
@@ -15,8 +13,8 @@ function Lobby() {
     const namesRef = child(lobbyRef, 'name');
     const namesList: string[] = [];
 
-    async function start (event: React.MouseEvent<HTMLButtonElement>) {
-        set(ref(database, 'games/' + lobbyId + '/gameState'), 'questionEntry');
+    async function start() {
+        await set(ref(database, 'games/' + lobbyId + '/gameState'), 'questionEntry');
     }
 
     useEffect(() => {
@@ -40,16 +38,17 @@ function Lobby() {
 
     return (
         <div className="lobby">
-            <h2>PLAYERS:</h2><br />
+            <h2>PLAYERS:</h2><br/>
             <ul className="player-list">
                 {names.split(String.fromCharCode(257)).map((name, index) => {
                     return (
-                            <li key={index}>{name}</li>
+                        <li key={index}>{name}</li>
                     );
                 })
                 }
             </ul>
-            <button className="long-button" onClick={(start)}>START GAME</button><br/>
+            <button className="long-button" onClick={(start)}>START GAME</button>
+            <br/>
         </div>
     );
 }

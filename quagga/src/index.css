@@ -52,32 +52,32 @@ body {
 }
 
 h1 {
-  font-family: Baloo-Bold;
+  font-family: Baloo-Bold, sans-serif;
   font-size: var(--title-font-size);
   color: var(--baby-blue);
   -webkit-text-stroke: 3px var(--trim);
 }
 
 h2 {
-  font-family: Baloo-Bold;
+  font-family: Baloo-Bold, sans-serif;
   color: var(--baby-blue);
   font-size: var(--title-font-size);
 }
 
 p {
-  font-family: Baloo;
+  font-family: Baloo, sans-serif;
   color: var(--trim);
   font-size: var(--body-font-size);
 }
 
 .link {
-  font-family: Baloo;
+  font-family: Baloo, sans-serif;
 }
 
 .input-box {
   width: 760px;
   height: 66px;
-  font-family: Baloo;
+  font-family: Baloo, sans-serif;
   color: var(--trim);
   font-size: var(--body-font-size);
   border-radius: var(--border-radius);
@@ -91,7 +91,7 @@ p {
 .short-button {
   width: 203px;
   height: 66px;
-  font-family: Baloo-Bold;
+  font-family: Baloo-Bold, sans-serif;
   font-size: var(--body-font-size);
   background-color: var(--baby-blue);
   border-radius: var(--border-radius);
@@ -103,7 +103,7 @@ p {
   width: 414px;
   height: 58px;
   margin-top: 30px;
-  font-family: Baloo-Bold;
+  font-family: Baloo-Bold, sans-serif;
   font-size: var(--body-font-size);
   background-color: var(--baby-blue);
   border-radius: var(--border-radius);
@@ -134,7 +134,7 @@ button:hover {
   background-color: white;
   width: 760px;
   height: 450px;
-  font-family: Baloo;
+  font-family: Baloo, sans-serif;
   font-size: var(--body-font-size);
   color: var(--trim);
   border-color: var(--baby-blue);
@@ -155,5 +155,5 @@ button:hover {
 
 .loading {
   margin: auto;
-  padding: 10ps;
+  padding: 10px;
 }
