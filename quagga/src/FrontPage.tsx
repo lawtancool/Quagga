@@ -19,8 +19,8 @@ function FrontPage() {
             <img src={logo} className='logo'/>
             <div className='h1'>QUAGGA</div>
             <div>
-                <input className='input-box' value={`quagga.io/${newLinkKey}`}></input>
-                <CopyButton link={`quagga.io/${newLinkKey}`} />
+                <input className='input-box' value={`quagga.lawrencetan.ca/${newLinkKey}`}></input>
+                <CopyButton link={`quagga.lawrencetan.ca/${newLinkKey}`} />
             </div>
             <button className='long-button' onClick={routeChange}> NEXT </button>
         
