@@ -3,7 +3,7 @@ import {useLoaderData} from "react-router-dom";
 import {database} from "./firebase";
 import {ref, get} from "firebase/database";
 
-function Lobby() {
+function Registration() {
     const lobbyId: any = useLoaderData();
     const [lobbyData, setLobbyData] = useState();
 
@@ -22,4 +22,4 @@ function Lobby() {
     );
 }
 
-export default Lobby;
+export default Registration;
