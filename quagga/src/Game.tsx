@@ -8,6 +8,7 @@ function Game() {
     const lobbyId: any = useLoaderData();
     const [lobbyExists, setLobbyExists] = useState(false);
     const [gameState, setGameState] = useState("");
+    const [registrationCompleted, setRegistrationCompleted] = useState(false);
 
     const lobbyRef = ref(database, 'games/' + lobbyId);
     const gameStateRef = child(lobbyRef, 'gameState');
@@ -36,7 +37,9 @@ function Game() {
     switch(gameState) {
         case 'lobby':
             return (
-                <Registration/>
+                <>
+                    {registrationCompleted ? <div>completed</div> :<Registration setRegistrationComplete={setRegistrationCompleted}/>
+                        }</>
             );
         case 'fun':
             return <div>nut</div>

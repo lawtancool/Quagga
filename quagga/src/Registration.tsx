@@ -1,16 +1,16 @@
-import React from 'react';
-import {useParams} from "react-router-dom";
+import React, {Dispatch, SetStateAction} from 'react';
+import {useParams, RoutesProps} from "react-router-dom";
 import {database} from "./firebase";
 import {ref, push} from "firebase/database";
 
 
-function Registration() {
+function Registration(props: RegistrationProps) {
     const lobbyId: any = useParams().lobbyId;
 
     async function register (event: React.MouseEvent<HTMLButtonElement>) {
         event.preventDefault();
         const name = document.getElementById("name") as HTMLInputElement | null;
-        const status = push(ref(database, 'games/' + lobbyId + '/name'), name?.value);
+        push(ref(database, 'games/' + lobbyId + '/name'), name?.value).then(() => {props.setRegistrationComplete(true)});
     }
 
     return (
@@ -19,6 +19,10 @@ function Registration() {
             <button onClick={(register)}>Join Game</button><br/>
         </div>
     );
+}
+
+interface RegistrationProps extends RoutesProps {
+    setRegistrationComplete: Dispatch<SetStateAction<boolean>>;
 }
 
 export default Registration;
