@@ -14,8 +14,8 @@ function AnswerEntry(props: AnswerEntryProps) {
         async function getQuestion() {
             get(ref(database, 'games/' + lobbyId + '/questions')).then((snapshot) => {
                 snapshot.forEach((snapshot) => {
-                    if (questionId.length === 0 && snapshot.child('state').val() !== 'answered') {
-                        setQuestion(snapshot.val());
+                    if (questionId.length === 0 && !snapshot.child('state').exists()) {
+                        setQuestion(snapshot.val().question);
                         if (snapshot.key) {
                             setQuestionId(snapshot.key);
                         }

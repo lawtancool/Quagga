@@ -6,6 +6,7 @@ import Registration from "./Registration";
 import QuestionEntry from "./QuestionEntry";
 import Lobby from "./Lobby";
 import AnswerEntry from "./AnswerEntry";
+import Voting from "./Voting";
 
 function Game() {
     const lobbyId: any = useLoaderData();
@@ -36,9 +37,9 @@ function Game() {
         return <div>Link doesn't exist</div>
     }
 
-    if (gameState !== 'lobby' && username === "") {
-        return <div>you're too late bruh, game has already started</div>
-    }
+    // if (gameState !== 'lobby' && username === "") {
+    //     return <div>you're too late bruh, game has already started</div>
+    // }
 
     switch (gameState) {
         case 'lobby':
@@ -53,6 +54,8 @@ function Game() {
             return <QuestionEntry/>
         case 'answerEntry':
             return <AnswerEntry username={username}/>
+        case 'voting':
+            return <Voting username={username}/>
         case 'fun':
             return <div>nut</div>
         default:

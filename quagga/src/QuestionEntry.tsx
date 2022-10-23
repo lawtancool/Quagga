@@ -15,7 +15,7 @@ function QuestionEntry() {
         const name = document.getElementById("name") as HTMLInputElement | null;
         let qs = 0;
         let players = 0;
-        push(ref(database, 'games/' + lobbyId + '/questions'), name?.value).then(() => {
+        push(ref(database, 'games/' + lobbyId + '/questions'), {question: name?.value}).then(() => {
             setSubmittedQuestion(true)
         });
         await get(ref(database, 'games/' + lobbyId + '/questions')).then((snapshot) => {
