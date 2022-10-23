@@ -1,7 +1,11 @@
 import React, {Dispatch, SetStateAction, useEffect, useRef, useState} from 'react';
 import {useParams, RoutesProps} from "react-router-dom";
 import {database} from "./firebase";
-import {ref, push, get, onValue, child} from "firebase/database";
+import {ref, push, get, onValue, child, DataSnapshot} from "firebase/database";
+
+// const temp: string[] = []
+
+
 
 
 function Lobby() {
@@ -10,32 +14,29 @@ function Lobby() {
     const lobbyRef = ref(database, 'games/' + lobbyId);
     const namesRef = child(lobbyRef, 'name');
 
-    let temp: string[] = [];
-
     useEffect(() => {
-        // async function getNames () {
-        //     const temp: string[] = [];
-        //     get(ref(database, 'games/' + lobbyId + '/name')).then((snapshot) => {
-        //         snapshot.forEach((snapshot) => {
-        //             console.log(snapshot.val())
-        //             temp.push(snapshot.val())
-        //         })
+
         //
-        //     })
-        //     setNames(temp);
-        // }
-        // if (names.length < ) {
-        //     getNames();
-        // }
+        // get(namesRef).then((snapshot) => {
+        //     handleNamesChange(snapshot)
+        // })
         onValue(namesRef, (snapshot) => {
-            temp = [];
+            handleNamesChange(snapshot);
+        })
+
+        function handleNamesChange(snapshot: DataSnapshot) {
+            const temp: string[] = [];
             snapshot.forEach((snapshot) => {
                 console.log(snapshot.val())
-                temp.push(snapshot.val())
+                temp.push(snapshot.val());
             })
             setNames(temp);
-        })
+        }
+
     })
+
+
+
     console.log(names);
     return (
         <div>
