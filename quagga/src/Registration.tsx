@@ -1,12 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import {useLoaderData} from "react-router-dom";
 import {database} from "./firebase";
-import {ref, get} from "firebase/database";
+import {ref, get, push, set, child} from "firebase/database";
 
-const register = (event: React.MouseEvent<HTMLButtonElement>) => {
-    const name = document.getElementById("name") as HTMLInputElement | null;
-    console.log(name?.value)
-}
+
 function Registration() {
     const lobbyId: any = useLoaderData();
     const [lobbyData, setLobbyData] = useState();
@@ -21,6 +18,15 @@ function Registration() {
             getData();
         }
     })
+
+
+
+    async function register (event: React.MouseEvent<HTMLButtonElement>) {
+        event.preventDefault();
+        const name = document.getElementById("name") as HTMLInputElement | null;
+        const status = set(ref(database, 'games/' + lobbyId + '/name'), name?.value);
+    }
+
     return (
         <div>
             <input type="text" id="name"/><br/>
